@@ -5,4 +5,6 @@ AllCops:
     - "bin/*"
     - "vendor/**/*"
     - "Dangerfile"
+    - "Guardfile"
+    - "Gemfile"
 

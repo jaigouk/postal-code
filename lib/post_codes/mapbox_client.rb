@@ -3,8 +3,11 @@
 require 'httparty'
 
 module PostCodes
+  # MapboxClient
+  # consumes api from mapbox
   class MapboxClient
-    HTTPARTY_PARAMS = [:headers, :query, :body, :verify, :timeout, :follow_redirects]
+    HTTPARTY_PARAMS =
+      %i[headers query body verify timeout follow_redirects].freeze
 
     def initialize(method, url, params = {})
       @method = method.to_sym
@@ -13,7 +16,7 @@ module PostCodes
     end
 
     class << self
-      alias_method :request, :new
+      alias request new
     end
 
     def response

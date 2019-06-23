@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ENV['RACK_ENV'] = 'test'
 
 require 'post_codes'
@@ -6,10 +8,9 @@ require 'rack/test'
 require 'factory_bot'
 require 'faker'
 
-%w(support setup shared).each do |folder|
+%w[support setup shared].each do |folder|
   Dir[File.join(__dir__, folder, '**/*.rb')].each { |file| require file }
 end
-
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods

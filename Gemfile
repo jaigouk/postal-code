@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 ruby '~> 2.6.3'
 
 # Core
-gem 'sinatra'
 gem 'rack-contrib'
 gem 'httparty'
 gem 'rack-cors', require: 'rack/cors'
@@ -13,6 +12,7 @@ gem 'rack-attack', require: 'rack/attack'
 gem 'rake'
 gem 'puma'
 
+gem 'sinatra'
 gem 'addressable'
 gem 'dotenv'
 gem 'oj'
@@ -27,6 +27,9 @@ end
 group :development, :test do
   gem 'faker'
   gem 'pry-byebug'
+  gem 'guard-rspec', require: false
+  gem 'guard-bundler'
+  gem 'guard-rubocop'
 end
 
 group :test do

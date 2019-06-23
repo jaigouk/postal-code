@@ -3,6 +3,7 @@
 require 'bundler/setup'
 require 'sinatra'
 require 'yaml'
+
 # PostCodes
 #
 module PostCodes
@@ -17,7 +18,8 @@ module PostCodes
   CONFIG_PATH = ROOT_PATH.join('config')
   INITIALIZERS_PATH = CONFIG_PATH.join('initializers')
 
-	LOG_DIR_PATH = ROOT_PATH.join("log")
+  LOG_DIR_PATH = ROOT_PATH.join('log')
+
   LOG_FILE_PATH = begin
     FileUtils.mkdir_p(LOG_DIR_PATH)
     LOG_DIR_PATH.join('logstash.log').tap do |path|
