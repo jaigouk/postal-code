@@ -1,0 +1,181 @@
+---
+type: FeatureCollection
+query:
+- museums
+features:
+- id: poi.1623497638977
+  type: Feature
+  place_type:
+  - poi
+  relevance: 1
+  properties:
+    wikidata: Q699943
+    address: Museumsplatz 1
+    landmark: true
+    category: museum, tourism
+  text: Museumsquartier
+  place_name: Museumsquartier, Museumsplatz 1, Neubau, Wien 1070, Austria
+  center:
+  - 16.35966725
+  - 48.20324975
+  geometry:
+    coordinates:
+    - 16.35966725
+    - 48.20324975
+    type: Point
+  context:
+  - id: postcode.9513004433456670
+    text: '1070'
+  - id: place.9513004433411490
+    wikidata: Q664835
+    text: Neubau
+  - id: region.13927340704912510
+    short_code: AT-9
+    wikidata: Q1741
+    text: Wien
+  - id: country.9066292634018400
+    short_code: at
+    wikidata: Q40
+    text: Austria
+- id: poi.403726926739
+  type: Feature
+  place_type:
+  - poi
+  relevance: 1
+  properties:
+    landmark: true
+    address: Überseebrücke
+    category: history museum, history, historical, museum, tourism
+  text: Museumsschiff Cap San Diego
+  place_name: Museumsschiff Cap San Diego, Überseebrücke, Hamburg, Hamburg 20459,
+    Germany
+  center:
+  - 9.976693
+  - 53.543221
+  geometry:
+    coordinates:
+    - 9.976693
+    - 53.543221
+    type: Point
+  context:
+  - id: postcode.15712406262207530
+    text: '20459'
+  - id: place.6626155103398860
+    wikidata: Q1055
+    text: Hamburg
+  - id: region.5127278006398860
+    short_code: DE-HH
+    wikidata: Q1055
+    text: Hamburg
+  - id: country.10743216036480410
+    short_code: de
+    wikidata: Q183
+    text: Germany
+- id: neighborhood.297415
+  type: Feature
+  place_type:
+  - neighborhood
+  relevance: 1
+  properties: {}
+  text: Museums
+  place_name: Museums, Richmond, Virginia 23220, United States
+  bbox:
+  - -77.470212
+  - 37.556781
+  - -77.46008
+  - 37.569392
+  center:
+  - -77.465516
+  - 37.564048
+  geometry:
+    type: Point
+    coordinates:
+    - -77.465516
+    - 37.564048
+  context:
+  - id: postcode.5672028235680120
+    text: '23220'
+  - id: place.2212915438867690
+    wikidata: Q43421
+    text: Richmond
+  - id: region.16625906770758790
+    short_code: US-VA
+    wikidata: Q1370
+    text: Virginia
+  - id: country.9053006287256050
+    short_code: us
+    wikidata: Q30
+    text: United States
+- id: poi.369367188398
+  type: Feature
+  place_type:
+  - poi
+  relevance: 1
+  properties:
+    landmark: true
+    wikidata: Q885171
+    address: Clauertstr. 11
+    category: history museum, history, historical, museum, tourism
+  text: Museumsdorf Düppel
+  place_name: Museumsdorf Düppel, Clauertstr. 11, Berlin, 14163, Germany
+  center:
+  - 13.233302
+  - 52.425108
+  geometry:
+    coordinates:
+    - 13.233302
+    - 52.425108
+    type: Point
+  context:
+  - id: locality.4587685842183820
+    wikidata: Q821061
+    text: Düppel
+  - id: postcode.8208874558106070
+    text: '14163'
+  - id: place.14880313158564380
+    short_code: DE-BE
+    wikidata: Q64
+    text: Berlin
+  - id: country.10743216036480410
+    short_code: de
+    wikidata: Q183
+    text: Germany
+- id: poi.386547056969
+  type: Feature
+  place_type:
+  - poi
+  relevance: 1
+  properties:
+    landmark: true
+    wikidata: Q14545667
+    address: Hafenstr. 31
+    category: museum, tourism
+  text: Museumshafen Greifswald
+  place_name: Museumshafen Greifswald, Hafenstr. 31, Greifswald, Mecklenburg-Vorpommern
+    17489, Germany
+  center:
+  - 13.384736
+  - 54.099292
+  geometry:
+    coordinates:
+    - 13.384736
+    - 54.099292
+    type: Point
+  context:
+  - id: postcode.6185369415637310
+    text: '17489'
+  - id: place.2657039429383600
+    wikidata: Q4098
+    text: Greifswald
+  - id: region.10596494575582460
+    short_code: DE-MV
+    wikidata: Q1196
+    text: Mecklenburg-Vorpommern
+  - id: country.10743216036480410
+    short_code: de
+    wikidata: Q183
+    text: Germany
+attribution: 'NOTICE: © 2019 Mapbox and its suppliers. All rights reserved. Use of
+  this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/).
+  This response and the information it contains may not be retained. POI(s) provided
+  by Foursquare.'

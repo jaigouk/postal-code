@@ -3,10 +3,11 @@
 ENV['RACK_ENV'] = 'test'
 
 require 'post_codes'
-require 'webmock/rspec'
 require 'rack/test'
 require 'factory_bot'
 require 'faker'
+require 'pry'
+require 'support/vcr'
 
 %w[support setup shared].each do |folder|
   Dir[File.join(__dir__, folder, '**/*.rb')].each { |file| require file }

@@ -1,0 +1,164 @@
+---
+type: FeatureCollection
+query:
+- museums
+features:
+- id: poi.3109556396458
+  type: Feature
+  place_type:
+  - poi
+  relevance: 1
+  properties:
+    landmark: true
+    address: Trebbiner Str. 9
+    category: park, leisure
+  text: Museumspark
+  place_name: Museumspark, Trebbiner Str. 9, Berlin, 10963, Germany
+  center:
+  - 13.375854
+  - 52.496421
+  geometry:
+    coordinates:
+    - 13.375854
+    - 52.496421
+    type: Point
+  context:
+  - id: postcode.16378600921382930
+    text: '10963'
+  - id: place.14880313158564380
+    short_code: DE-BE
+    wikidata: Q64
+    text: Berlin
+  - id: country.10743216036480410
+    short_code: de
+    wikidata: Q183
+    text: Germany
+- id: poi.2954937544145
+  type: Feature
+  place_type:
+  - poi
+  relevance: 1
+  properties:
+    landmark: true
+    address: Trebbiner Str. 9
+    category: souvenir shop, souvenir, shop
+  text: Museumsshop
+  place_name: Museumsshop, Trebbiner Str. 9, Berlin, 10963, Germany
+  center:
+  - 13.377047
+  - 52.498568
+  geometry:
+    coordinates:
+    - 13.377047
+    - 52.498568
+    type: Point
+  context:
+  - id: postcode.16378600921382930
+    text: '10963'
+  - id: place.14880313158564380
+    short_code: DE-BE
+    wikidata: Q64
+    text: Berlin
+  - id: country.10743216036480410
+    short_code: de
+    wikidata: Q183
+    text: Germany
+- id: poi.2714419341612
+  type: Feature
+  place_type:
+  - poi
+  relevance: 1
+  properties:
+    landmark: true
+    address: Potsdamer Str. 2
+    category: gift, novelty, shop, gift shop
+  text: Museumsshop
+  place_name: Museumsshop, Potsdamer Str. 2, Berlin, 10785, Germany
+  center:
+  - 13.373666
+  - 52.509443
+  geometry:
+    coordinates:
+    - 13.373666
+    - 52.509443
+    type: Point
+  context:
+  - id: postcode.8748314465448900
+    text: '10785'
+  - id: place.14880313158564380
+    short_code: DE-BE
+    wikidata: Q64
+    text: Berlin
+  - id: country.10743216036480410
+    short_code: de
+    wikidata: Q183
+    text: Germany
+- id: poi.395136991242
+  type: Feature
+  place_type:
+  - poi
+  relevance: 1
+  properties:
+    landmark: true
+    wikidata: Q469234
+    address: Lansstr. 8
+    category: museum, tourism
+  text: Museumszentrum Berlin-Dahlem
+  place_name: Museumszentrum Berlin-Dahlem, Lansstr. 8, Berlin, 14195, Germany
+  center:
+  - 13.29218
+  - !ruby/object:BigDecimal 27:0.52456537499999996e2
+  geometry:
+    coordinates:
+    - 13.29218
+    - !ruby/object:BigDecimal 27:0.52456537499999996e2
+    type: Point
+  context:
+  - id: locality.5740449161961870
+    wikidata: Q700541
+    text: Dahlem
+  - id: postcode.6992016893195310
+    text: '14195'
+  - id: place.14880313158564380
+    short_code: DE-BE
+    wikidata: Q64
+    text: Berlin
+  - id: country.10743216036480410
+    short_code: de
+    wikidata: Q183
+    text: Germany
+- id: poi.627065226386
+  type: Feature
+  place_type:
+  - poi
+  relevance: 1
+  properties:
+    landmark: true
+    address: Hellersdorfer Straße 179
+    category: historic site, historic
+  text: Museumswohnung Hellersdorf
+  place_name: Museumswohnung Hellersdorf, Hellersdorfer Straße 179, Berlin, 12627,
+    Germany
+  center:
+  - 13.592961
+  - 52.534223
+  geometry:
+    coordinates:
+    - 13.592961
+    - 52.534223
+    type: Point
+  context:
+  - id: postcode.12897774111384140
+    text: '12627'
+  - id: place.14880313158564380
+    short_code: DE-BE
+    wikidata: Q64
+    text: Berlin
+  - id: country.10743216036480410
+    short_code: de
+    wikidata: Q183
+    text: Germany
+attribution: 'NOTICE: © 2019 Mapbox and its suppliers. All rights reserved. Use of
+  this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/).
+  This response and the information it contains may not be retained. POI(s) provided
+  by Foursquare.'

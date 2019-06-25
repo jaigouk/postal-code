@@ -39,6 +39,7 @@ group :test do
   gem 'rspec'
   gem 'rubocop'
   gem 'hashdiff'
+  gem 'vcr'
   gem 'webmock', require: false
   gem 'timecop'
 end

@@ -61,4 +61,4 @@ end
 PostCodes.add_to_load_path!
 PostCodes.initialize!
 
-require_relative 'post_codes/mapbox_client'
+require_relative 'post_codes/geocoding'
