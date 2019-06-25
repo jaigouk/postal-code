@@ -7,4 +7,5 @@ AllCops:
     - "Dangerfile"
     - "Guardfile"
     - "Gemfile"
+    - "spec/post_codes/*"
 

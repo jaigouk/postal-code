@@ -9,16 +9,16 @@ describe PostCodes::Geocoding do
     PostCodes::Geocoding.new(lon, lat, 'museums')
   end
 
-  describe '#get_country_code', :vcr do
+  describe '#country_code', :vcr do
     it 'contains country code based on the coordinates' do
-      res = subject.get_country_code
+      res = subject.country_code
       expect(res).to include('de')
     end
 
     it 'returns nil if the coordinates are wrong' do
       lat = 2.497
-      lon = 100000.437641
-      res = PostCodes::Geocoding.new(lon, lat, 'museums').get_country_code
+      lon = 100_000.437641
+      res = described_class.new(lon, lat, 'museums').country_code
       expect(res).to be_falsey
     end
   end
@@ -33,7 +33,7 @@ describe PostCodes::Geocoding do
     end
   end
 
-  describe '#respond', :vcr  do
+  describe '#respond', :vcr do
     it 'returns hash' do
       res = subject.respond
       expect(res).not_to be_falsey
