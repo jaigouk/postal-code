@@ -27,4 +27,6 @@ As an example when doing a request to `/museums?lat=52.494857&lng=13.437641` wou
 
 some places in Mapbox don’t have postcodes, for example in Japan.
 
-
+```
+docker pull pelias/libpostal-service
+```

@@ -12,7 +12,7 @@ module PostCodes
       locality neighborhood address poi
     ].freeze
 
-    def initialize(lon, lat, keyword, types = 'poi')
+    def initialize(lon, lat, keyword, types = '')
       @lon = lon
       @lat = lat
       @keyword = keyword
@@ -24,7 +24,7 @@ module PostCodes
       res = ask_mapbox(:search)
       return unless res.code == 200
 
-      Oj.load(res.body)
+      self.class.group_by_postcode Oj.load(res.body)
     end
 
     def country_code
@@ -34,9 +34,7 @@ module PostCodes
       data = Oj.load(res.body)
       return if data['features'].size.zero?
 
-      code = data['features'].first['properties']['short_code']
-
-      "&country=#{code}"
+      "&country=#{data['features'].first['properties']['short_code']}"
     end
 
     class << self
@@ -50,20 +48,19 @@ module PostCodes
 
       def filtered(data)
         temp = data['features'].map do |f|
-          f.select { |k, _| %w[text context].include?(k) }
+          f.select { |k, _| %w[text context place_name].include?(k) }
         end
-        temp.each { |item| item['postcode'] = check_postcode(item) }
+        temp.each { |item| item['postcode'] = postcode(item) }
         temp.map do |h|
           h.select { |k, _| %w[text postcode].include?(k) }
         end
       end
 
-      def check_postcode(item)
-        if item['context'].first['id'].include?('postcode')
-          item['context'].first['text']
-        else
-          ''
-        end
+      def postcode(item)
+        post = item['context'].select { |i| i['id'].include?('postcode') }
+        return post[0]['text'] unless post.size.zero?
+
+        'FIX_BLANK_POSTCODE'
       end
     end
 
@@ -91,7 +88,8 @@ module PostCodes
     def search_url
       "#{PostCodes.settings[:mapbox][:base_url]}/geocoding/v5/" \
       "#{PostCodes.settings[:mapbox][:endpoint]}/#{@keyword}.json" \
-      "?proximity=#{@lon},#{@lat}#{sanitized_types}#{country_code}#{token_part}"
+      "?proximity=#{@lon},#{@lat}#{sanitized_types}" \
+      "&language=en#{country_code}#{token_part}"
     end
 
     def token_part

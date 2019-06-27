@@ -1,0 +1,259 @@
+---
+type: FeatureCollection
+query:
+- starbucks
+features:
+- id: poi.1898375548120
+  type: Feature
+  place_type:
+  - poi
+  relevance: 1
+  properties:
+    landmark: true
+    address: 神田佐久間町1-6-5
+    category: coffee, cafe
+  text_en: Starbucks
+  language_en: en
+  place_name_en: Starbucks, 神田佐久間町1-6-5, Tokyo, Tokyo Prefecture, Japan
+  text: Starbucks
+  language: en
+  place_name: Starbucks, 神田佐久間町1-6-5, Tokyo, Tokyo Prefecture, Japan
+  center:
+  - 139.772849
+  - 35.69835075
+  geometry:
+    coordinates:
+    - 139.772849
+    - 35.69835075
+    type: Point
+  context:
+  - id: locality.11265568685005150
+    wikidata: Q214051
+    text_en: Chiyoda
+    language_en: en
+    text: Chiyoda
+    language: en
+  - id: place.8168711922111140
+    wikidata: Q1490
+    text_en: Tokyo
+    language_en: en
+    text: Tokyo
+    language: en
+  - id: region.15637623541111140
+    short_code: JP-13
+    wikidata: Q1490
+    text_en: Tokyo Prefecture
+    language_en: en
+    text: Tokyo Prefecture
+    language: en
+  - id: country.12208545982530190
+    short_code: jp
+    wikidata: Q17
+    text_en: Japan
+    language_en: en
+    text: Japan
+    language: en
+- id: poi.3023657052472
+  type: Feature
+  place_type:
+  - poi
+  relevance: 1
+  properties:
+    landmark: true
+    address: 上野公園8-22
+    category: coffee, cafe
+  text_en: Starbucks
+  language_en: en
+  place_name_en: Starbucks, 上野公園8-22, Tokyo, Tokyo Prefecture, Japan
+  text: Starbucks
+  language: en
+  place_name: Starbucks, 上野公園8-22, Tokyo, Tokyo Prefecture, Japan
+  center:
+  - 139.774056
+  - 35.71617
+  geometry:
+    coordinates:
+    - 139.774056
+    - 35.71617
+    type: Point
+  context:
+  - id: locality.7249900001173090
+    wikidata: Q232641
+    text_en: Taitō-ku
+    language_en: en
+    text: Taitō-ku
+    language: en
+  - id: place.8168711922111140
+    wikidata: Q1490
+    text_en: Tokyo
+    language_en: en
+    text: Tokyo
+    language: en
+  - id: region.15637623541111140
+    short_code: JP-13
+    wikidata: Q1490
+    text_en: Tokyo Prefecture
+    language_en: en
+    text: Tokyo Prefecture
+    language: en
+  - id: country.12208545982530190
+    short_code: jp
+    wikidata: Q17
+    text_en: Japan
+    language_en: en
+    text: Japan
+    language: en
+- id: poi.2611340177992
+  type: Feature
+  place_type:
+  - poi
+  relevance: 1
+  properties:
+    landmark: true
+    address: 神田鍛冶町3-2
+    category: coffee, cafe
+  text_en: Starbucks
+  language_en: en
+  place_name_en: Starbucks, 神田鍛冶町3-2, Tokyo, Tokyo Prefecture, Japan
+  text: Starbucks
+  language: en
+  place_name: Starbucks, 神田鍛冶町3-2, Tokyo, Tokyo Prefecture, Japan
+  center:
+  - 139.77128
+  - 35.693345
+  geometry:
+    coordinates:
+    - 139.77128
+    - 35.693345
+    type: Point
+  context:
+  - id: locality.11265568685005150
+    wikidata: Q214051
+    text_en: Chiyoda
+    language_en: en
+    text: Chiyoda
+    language: en
+  - id: place.8168711922111140
+    wikidata: Q1490
+    text_en: Tokyo
+    language_en: en
+    text: Tokyo
+    language: en
+  - id: region.15637623541111140
+    short_code: JP-13
+    wikidata: Q1490
+    text_en: Tokyo Prefecture
+    language_en: en
+    text: Tokyo Prefecture
+    language: en
+  - id: country.12208545982530190
+    short_code: jp
+    wikidata: Q17
+    text_en: Japan
+    language_en: en
+    text: Japan
+    language: en
+- id: poi.2740189184869
+  type: Feature
+  place_type:
+  - poi
+  relevance: 1
+  properties:
+    landmark: true
+    address: 上野7-1-1
+    category: coffee, cafe
+  text_en: Starbucks
+  language_en: en
+  place_name_en: Starbucks, 上野7-1-1, Tokyo, Tokyo Prefecture, Japan
+  text: Starbucks
+  language: en
+  place_name: Starbucks, 上野7-1-1, Tokyo, Tokyo Prefecture, Japan
+  center:
+  - 139.775844
+  - 35.711461
+  geometry:
+    coordinates:
+    - 139.775844
+    - 35.711461
+    type: Point
+  context:
+  - id: locality.7249900001173090
+    wikidata: Q232641
+    text_en: Taitō-ku
+    language_en: en
+    text: Taitō-ku
+    language: en
+  - id: place.8168711922111140
+    wikidata: Q1490
+    text_en: Tokyo
+    language_en: en
+    text: Tokyo
+    language: en
+  - id: region.15637623541111140
+    short_code: JP-13
+    wikidata: Q1490
+    text_en: Tokyo Prefecture
+    language_en: en
+    text: Tokyo Prefecture
+    language: en
+  - id: country.12208545982530190
+    short_code: jp
+    wikidata: Q17
+    text_en: Japan
+    language_en: en
+    text: Japan
+    language: en
+- id: poi.2817498595398
+  type: Feature
+  place_type:
+  - poi
+  relevance: 1
+  properties:
+    landmark: true
+    address: 上野6-2-1
+    category: coffee, cafe
+  text_en: Starbucks
+  language_en: en
+  place_name_en: Starbucks, 上野6-2-1, Tokyo, Tokyo Prefecture, Japan
+  text: Starbucks
+  language: en
+  place_name: Starbucks, 上野6-2-1, Tokyo, Tokyo Prefecture, Japan
+  center:
+  - 139.774383
+  - 35.7073975
+  geometry:
+    coordinates:
+    - 139.774383
+    - 35.7073975
+    type: Point
+  context:
+  - id: locality.7249900001173090
+    wikidata: Q232641
+    text_en: Taitō-ku
+    language_en: en
+    text: Taitō-ku
+    language: en
+  - id: place.8168711922111140
+    wikidata: Q1490
+    text_en: Tokyo
+    language_en: en
+    text: Tokyo
+    language: en
+  - id: region.15637623541111140
+    short_code: JP-13
+    wikidata: Q1490
+    text_en: Tokyo Prefecture
+    language_en: en
+    text: Tokyo Prefecture
+    language: en
+  - id: country.12208545982530190
+    short_code: jp
+    wikidata: Q17
+    text_en: Japan
+    language_en: en
+    text: Japan
+    language: en
+attribution: 'NOTICE: © 2019 Mapbox and its suppliers. All rights reserved. Use of
+  this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/).
+  This response and the information it contains may not be retained. POI(s) provided
+  by Foursquare.'

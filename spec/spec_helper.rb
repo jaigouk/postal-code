@@ -8,6 +8,7 @@ require 'factory_bot'
 require 'faker'
 require 'pry'
 require 'support/vcr'
+require 'support/save_fixture'
 
 %w[support setup shared].each do |folder|
   Dir[File.join(__dir__, folder, '**/*.rb')].each { |file| require file }
@@ -16,6 +17,7 @@ end
 RSpec.configure do |config|
   config.include Rack::Test::Methods
   config.include FactoryBot::Syntax::Methods
+  config.include SaveFixture
 
   config.before(:suite) do
     FactoryBot.find_definitions
