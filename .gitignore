@@ -1,6 +1,6 @@
 priv
 NOTE.md
-data/*
+data/**/*
 # Logs
 log
 

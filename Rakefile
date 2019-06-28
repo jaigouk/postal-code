@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'lib/post_codes'
-require "active_record_migrations"
+require 'active_record_migrations'
 
 $LOAD_PATH.unshift(File.expand_path('lib', __dir__))
 
@@ -9,7 +9,6 @@ require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 require 'json'
 require 'pathname'
-
 
 ActiveRecordMigrations.configure do |c|
   c.schema_format = :ruby

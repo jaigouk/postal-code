@@ -17,7 +17,6 @@ gem 'dotenv'
 gem 'oj'
 
 # db
-gem 'sequel'
 gem 'redis'
 gem 'pg'
 gem 'sqlite3'
@@ -32,6 +31,9 @@ gem 'danger-commit_lint'
 
 group :development do
   gem 'rerun'
+  # sequel is used dev mode.
+  # just to inspect sqlite schema
+  gem 'sequel'
 end
 
 group :development, :test do

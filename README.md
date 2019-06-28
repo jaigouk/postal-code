@@ -23,26 +23,40 @@ As an example when doing a request to `/museums?lat=52.494857&lng=13.437641` wou
 }
 ```
 
-## Note
+## Local setup
 
-some places in Mapbox don’t have postcodes, for example in Japan.
+### Preparing data
 
 ```sh
+psql
+# create user and add username and password to .env
+CREATE ROLE postalcode WITH CREATEDB LOGIN SUPERUSER PASSWORD 'postalcode';
 
-bin/wof-fetchers/wof-dist-fetch-darwin -inventory https://dist.whosonfirst.org/sqlite/inventory.json -dest /Users/jkim/wof_data -include 'whosonfirst-data-postalcode-*-latest.db'
+# ruby 2.6.3
+rvm use 2.6.3
+gem instsall bundler
 
-# https://whosonfirst.org/blog/2018/02/20/wof-in-a-box-part3/
-# https://github.com/whosonfirst/es-whosonfirst-schema
+cp .env.example .env
+bundle install
 
+rake db:create
+
+# Japen db by default
+# We will import WhosOnFirst administrative and postcode data
+rake wof:download_db
+rake wof:convert_to_csv
+rake wof:import_csv
+
+# For adding extra migrations
+rake db:new_migration name=CreateSomething
+```
+
+redis
+
+```sh
 $ gem install rugged
 
 You need to have CMake and pkg-config installed on your system to be able to build the included version of libgit2. On OS X, after installing Homebrew, you can get CMake with:
 
 $ brew install cmake
 ```
-
-1. fetch sqlite database
-2. import sqlite into postgres
-3. fetch geojson
-
-https://tutorialinux.com/today-learned-migrating-sqlite-postgres-easy-sequel/

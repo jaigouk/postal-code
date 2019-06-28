@@ -20,7 +20,7 @@ module PostCodes
   DB_CONFIG = ROOT_PATH.join('config', 'database.yml')
   LOAD_PATH = ROOT_PATH.join('lib')
   CONFIG_PATH = ROOT_PATH.join('config')
-  WOF_PATH = ROOT_PATH.join('bin', '')
+  WOF_PATH = ROOT_PATH.join('bin', 'wof')
   DATA_PATH = ROOT_PATH.join('data')
   INITIALIZERS_PATH = CONFIG_PATH.join('initializers')
 

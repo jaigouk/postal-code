@@ -8,3 +8,4 @@ AllCops:
     - "Guardfile"
     - "Gemfile"
     - "spec/post_codes/**/*"
+    - "data/*"
