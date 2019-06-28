@@ -21,7 +21,7 @@ describe PostCodes::WofImporter do
     end
   end
 
-  describe '#import_one_repo' do
+  describe '#migrate_wof_db' do
     context('basic features') do
       it 'checks repo exists' do
       end

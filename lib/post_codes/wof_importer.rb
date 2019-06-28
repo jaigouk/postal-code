@@ -13,11 +13,21 @@ module PostCodes
       fetch(db('postalcode'))
     end
 
+    def migrate_wof_db
+      migrate(db('admin'))
+      migrate(db('postalcode'))
+    end
+
     private
 
     def fetch(db)
       f = "#{PostCodes::DATA_PATH}/#{db}"
       run_system(db) unless File.file?(f)
+    end
+
+    def migrate(db)
+      f = "#{PostCodes::DATA_PATH}/#{db}"
+      migrate_system(db) if File.file?(f)
     end
 
     def run_system(db)

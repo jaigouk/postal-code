@@ -1,0 +1,24 @@
+default: &default
+  adapter:  postgresql
+  pool:     <% ENV['DATABASE_POOL'] %>
+  timeout:  <% ENV['DATABASE_TIMEOUT'] %>
+  host:     <% ENV['DATABASE_HOST'] %>
+  username: <% ENV['DATABASE_USERNAME'] %>
+  password: <% ENV['DATABASE_PASSWORD'] %>
+  database: <% ENV['DATABASE_NAME'] %>
+
+production:
+  <<: *default
+
+development:
+  adapter: postgresql
+  database: post_codes_development
+  username: <% ENV['DATABASE_USERNAME'] %>
+  password: <% ENV['DATABASE_PASSWORD'] %>
+
+test:
+  adapter: postgresql
+  host: localhost
+  username: <% ENV['DATABASE_USERNAME'] %>
+  password: <% ENV['DATABASE_PASSWORD'] %>
+  database: post_codes_test

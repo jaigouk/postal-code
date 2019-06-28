@@ -6,7 +6,6 @@ log
 
 # Config files
 .env
-config/database.yml
 
 # Development
 .idea

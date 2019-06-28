@@ -9,14 +9,24 @@ gem 'rack-contrib'
 gem 'httparty'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rack-attack', require: 'rack/attack'
-gem 'rake'
 gem 'puma'
-gem 'redis'
 gem 'sinatra'
+
 gem 'addressable'
 gem 'dotenv'
 gem 'oj'
 
+# db
+gem 'sequel'
+gem 'redis'
+gem 'pg'
+gem 'sqlite3'
+gem 'activerecord'
+gem 'active_record_migrations'
+gem 'activesupport'
+
+# util
+gem 'rake'
 gem 'danger'
 gem 'danger-commit_lint'
 
