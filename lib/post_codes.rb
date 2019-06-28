@@ -4,6 +4,9 @@ require 'bundler/setup'
 require 'sinatra'
 require 'yaml'
 
+require_relative 'post_codes/geocoding'
+require_relative 'post_codes/wof_importer'
+
 # PostCodes
 #
 module PostCodes
@@ -16,6 +19,8 @@ module PostCodes
   ROOT_PATH = Pathname(__dir__).parent
   LOAD_PATH = ROOT_PATH.join('lib')
   CONFIG_PATH = ROOT_PATH.join('config')
+  WOF_PATH = ROOT_PATH.join('bin', 'wof')
+  DATA_PATH = ROOT_PATH.join('data')
   INITIALIZERS_PATH = CONFIG_PATH.join('initializers')
 
   LOG_DIR_PATH = ROOT_PATH.join('log')
@@ -60,5 +65,3 @@ end
 
 PostCodes.add_to_load_path!
 PostCodes.initialize!
-
-require_relative 'post_codes/geocoding'

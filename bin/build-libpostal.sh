@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 ROOT_DIR=${DIR%"/bin"}
 PRIV_DIR="$ROOT_DIR/priv"
@@ -17,4 +16,3 @@ cd libpostal
 make -j4
 sudo make install
 sudo ldconfig
-

@@ -27,6 +27,22 @@ As an example when doing a request to `/museums?lat=52.494857&lng=13.437641` wou
 
 some places in Mapbox don’t have postcodes, for example in Japan.
 
+```sh
+
+bin/wof-fetchers/wof-dist-fetch-darwin -inventory https://dist.whosonfirst.org/sqlite/inventory.json -dest /Users/jkim/wof_data -include 'whosonfirst-data-postalcode-*-latest.db'
+
+# https://whosonfirst.org/blog/2018/02/20/wof-in-a-box-part3/
+# https://github.com/whosonfirst/es-whosonfirst-schema
+
+$ gem install rugged
+
+You need to have CMake and pkg-config installed on your system to be able to build the included version of libgit2. On OS X, after installing Homebrew, you can get CMake with:
+
+$ brew install cmake
 ```
-docker pull pelias/libpostal-service
-```
+
+1. fetch sqlite database
+2. import sqlite into postgres
+3. fetch geojson
+
+https://tutorialinux.com/today-learned-migrating-sqlite-postgres-easy-sequel/

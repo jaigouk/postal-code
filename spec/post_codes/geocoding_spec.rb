@@ -6,7 +6,7 @@ describe PostCodes::Geocoding do
   subject do
     lat = 52.494857
     lon = 13.437641
-    PostCodes::Geocoding.new(lon, lat, 'museums')
+    described_class.new(lon, lat, 'museums')
   end
 
   describe '#country_code', :vcr do

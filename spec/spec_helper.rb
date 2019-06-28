@@ -7,6 +7,7 @@ require 'rack/test'
 require 'factory_bot'
 require 'faker'
 require 'pry'
+require 'webmock/rspec'
 require 'support/vcr'
 require 'support/save_fixture'
 

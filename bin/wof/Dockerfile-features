@@ -1,0 +1,13 @@
+# This docker file exists to build linux exec files. amd64.
+# docker build -t wof-feature . -f Dockerfile-features
+# docker run --rm -i -t -v bin:/root/go-whosonfirst-sqlite-features/output wof-feature
+
+FROM golang:1.12.6-stretch
+RUN apt-get update && apt-get install -y \
+    vim autoconf automake build-essential curl git libsnappy-dev libtool pkg-config
+
+WORKDIR /root
+RUN git clone --single-branch --depth 1 https://github.com/whosonfirst/go-whosonfirst-sqlite-features.git
+RUN mkdir -p /root/go-whosonfirst-sqlite-features/output
+
+ENTRYPOINT ["/bin/bash"]

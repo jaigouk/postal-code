@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
+require_relative "lib/post_codes"
+
 $LOAD_PATH.unshift(File.expand_path('lib', __dir__))
 
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
-require 'sinatra/activerecord/rake'
 require 'json'
 require 'pathname'
 
@@ -17,3 +18,5 @@ end
 
 task quality: %i[rubocop]
 task default: %i[spec quality]
+
+load "tasks/wof.rake"
