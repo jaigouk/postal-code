@@ -11,16 +11,20 @@ describe PostCodes::WofImporter do
     it 'downloads administrative and postcode data for 1 country' do
       allow(File).to receive(:file?).and_return(false)
       allow(Kernel).to receive(:system).and_return(true)
-      expect(subject).to receive(:fetch).with('whosonfirst-data-admin-jp-latest.db')
-      expect(subject).to receive(:fetch).with('whosonfirst-data-postalcode-jp-latest.db')
+
+      admin_db = 'whosonfirst-data-admin-jp-latest.db'
+      expect(subject).to receive(:fetch).with(admin_db)
+
+      post_db = 'whosonfirst-data-postalcode-jp-latest.db'
+      expect(subject).to receive(:fetch).with(post_db)
       subject.download
     end
   end
 
   describe '#import_one_repo' do
     context('basic features') do
-      it 'checks repo exists'
-
+      it 'checks repo exists' do
+      end
     end
     context('administrative data') do
       it 'extracts geojson type - polygon or pint'

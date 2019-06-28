@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module PostCodes
+  # WofImporter
+  # downloads db and import it
   class WofImporter
     def initialize(country)
       @country = country
@@ -11,13 +13,14 @@ module PostCodes
       fetch(db('postalcode'))
     end
 
+    private
+
     def fetch(db)
-      unless File.file?("#{PostCodes::DATA_PATH}/#{db}")
-        run_system_command(db)
-      end
+      f = "#{PostCodes::DATA_PATH}/#{db}"
+      run_system(db) unless File.file?(f)
     end
 
-    def run_system_command(db)
+    def run_system(db)
       req = "#{PostCodes::WOF_PATH}/wof-dist-fetch-darwin " \
       '-inventory https://dist.whosonfirst.org/sqlite/inventory.json ' \
       "-dest #{PostCodes::DATA_PATH} " \

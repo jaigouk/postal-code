@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "lib/post_codes"
+require_relative 'lib/post_codes'
 
 $LOAD_PATH.unshift(File.expand_path('lib', __dir__))
 
@@ -19,4 +19,4 @@ end
 task quality: %i[rubocop]
 task default: %i[spec quality]
 
-load "tasks/wof.rake"
+load 'tasks/wof.rake'
