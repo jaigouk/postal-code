@@ -23,6 +23,7 @@ gem 'sqlite3'
 gem 'activerecord'
 gem 'active_record_migrations'
 gem 'activesupport'
+gem 'activerecord-postgis-adapter'
 
 # util
 gem 'rake'

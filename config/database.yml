@@ -1,7 +1,7 @@
 default: &default
-  adapter:  postgresql
-  pool:     <% ENV["DATABASE_POOL"] %>
-  timeout:  <% ENV["DATABASE_TIMEOUT"] %>
+  adapter:  postgis
+  pool:    5
+  timeout: 5000
   host:     <% ENV["DATABASE_HOST"] %>
   username: <% ENV["DATABASE_USERNAME"] %>
   password: <% ENV["DATABASE_PASSWORD"] %>
@@ -11,15 +11,9 @@ production:
   <<: *default
 
 development:
-  adapter: postgresql
-  host: localhost
-  database: post_codes_development
-  username: <% ENV["DATABASE_USERNAME"] %>
-  password: <% ENV["DATABASE_PASSWORD"] %>
+  <<: *default
+  database: postalcode_development
 
 test:
-  adapter: postgresql
-  host: localhost
-  database: post_codes_test
-  username: <% ENV["DATABASE_USERNAME"] %>
-  password: <% ENV["DATABASE_PASSWORD"] %>
+  <<: *default
+  database: postalcode_test
