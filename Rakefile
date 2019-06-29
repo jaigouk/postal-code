@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'lib/post_codes'
+require_relative 'lib/postal_code'
 require 'active_record_migrations'
 
 $LOAD_PATH.unshift(File.expand_path('lib', __dir__))
@@ -12,8 +12,8 @@ require 'pathname'
 
 ActiveRecordMigrations.configure do |c|
   c.schema_format = :ruby
-  c.yaml_config = PostCodes::DB_CONFIG
-  c.environment = PostCodes.env
+  c.yaml_config = PostalCode::DB_CONFIG
+  c.environment = PostalCode.env
 end
 
 ActiveRecordMigrations.load_tasks

@@ -4,12 +4,12 @@ require 'bundler/setup'
 require 'sinatra'
 require 'yaml'
 
-require_relative 'post_codes/geocoding'
-require_relative 'post_codes/wof_importer'
+require_relative 'postal_code/geocoding'
+require_relative 'postal_code/wof_importer'
 
-# PostCodes
+# PostalCode
 #
-module PostCodes
+module PostalCode
   ENV_VARIABLE_NAME = 'RACK_ENV'
   DEVELOPMENT_ENV = 'development'
   TEST_ENV = 'test'
@@ -64,5 +64,5 @@ module PostCodes
   end
 end
 
-PostCodes.add_to_load_path!
-PostCodes.initialize!
+PostalCode.add_to_load_path!
+PostalCode.initialize!

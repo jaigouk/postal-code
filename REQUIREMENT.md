@@ -35,7 +35,7 @@ As an example when doing a request to `/museums?lat=52.494857&lng=13.437641` wou
 }
 ```
 
-Note that some places in Mapbox don’t have postcodes, for example in Japan. The decision on how to handle these museums is up to you.
+Note that some places in Mapbox don’t have PostalCode, for example in Japan. The decision on how to handle these museums is up to you.
 
  ### In conclusion
 

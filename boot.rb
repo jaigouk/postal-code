@@ -10,4 +10,4 @@ if ENV['RACK_ENV'] == 'development'
   Dotenv.load('.env')
 end
 
-require 'post_codes'
+require 'postal_code'

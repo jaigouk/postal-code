@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe PostCodes::Geocoding do
+describe PostalCode::Geocoding do
   subject do
     lat = 52.494857
     lon = 13.437641
@@ -23,8 +23,8 @@ describe PostCodes::Geocoding do
     end
   end
 
-  describe '#self.group_by_postcodes' do
-    it 'groups mapbox search results with postcodes' do
+  describe '#self.group_by_PostalCode' do
+    it 'groups mapbox search results with PostalCode' do
       fixture = File.join(__dir__, '..', 'fixtures', 'museums_in_germany.yml')
       data = YAML.load_file(fixture)
       res = described_class.group_by_postcode(data)

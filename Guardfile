@@ -9,7 +9,7 @@ end
 
 guard :rspec, cmd: 'bundle exec rspec' do
   watch(%r{^spec/(.*)_spec\.rb$})
-  watch(%r{^lib/post_codes/(.+)\.rb$}) { |m| 'spec/post_codes/#{m[1]}_spec.rb' }
+  watch(%r{^lib/postal_code/(.+)\.rb$}) { |m| 'spec/postal_code/#{m[1]}_spec.rb' }
   watch(%r{^spec/spec_helper\.rb$}) { 'spec' }
 end
 

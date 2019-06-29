@@ -3,7 +3,7 @@
 
 $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 
-require 'post_codes'
+require 'postal_code'
 
 require 'irb'
 IRB.start

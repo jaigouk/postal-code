@@ -24,6 +24,7 @@ gem 'activerecord'
 gem 'active_record_migrations'
 gem 'activesupport'
 gem 'activerecord-postgis-adapter'
+gem 'activerecord-import'
 
 # util
 gem 'rake'

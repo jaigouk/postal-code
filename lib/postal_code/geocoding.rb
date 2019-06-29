@@ -3,7 +3,7 @@
 require 'httparty'
 require 'oj'
 
-module PostCodes
+module PostalCode
   # MapboxClient
   # consumes api from mapbox
   class Geocoding
@@ -80,20 +80,20 @@ module PostCodes
     end
 
     def country_url
-      "#{PostCodes.settings[:mapbox][:base_url]}/geocoding/v5/" \
-      "#{PostCodes.settings[:mapbox][:endpoint]}/#{@lon},#{@lat}.json" \
+      "#{PostalCode.settings[:mapbox][:base_url]}/geocoding/v5/" \
+      "#{PostalCode.settings[:mapbox][:endpoint]}/#{@lon},#{@lat}.json" \
       "?types=country#{token_part}"
     end
 
     def search_url
-      "#{PostCodes.settings[:mapbox][:base_url]}/geocoding/v5/" \
-      "#{PostCodes.settings[:mapbox][:endpoint]}/#{@keyword}.json" \
+      "#{PostalCode.settings[:mapbox][:base_url]}/geocoding/v5/" \
+      "#{PostalCode.settings[:mapbox][:endpoint]}/#{@keyword}.json" \
       "?proximity=#{@lon},#{@lat}#{sanitized_types}" \
       "&language=en#{country_code}#{token_part}"
     end
 
     def token_part
-      "&access_token=#{PostCodes.settings[:mapbox][:token]}"
+      "&access_token=#{PostalCode.settings[:mapbox][:token]}"
     end
   end
 end

@@ -2,7 +2,7 @@
 
 ENV['RACK_ENV'] = 'test'
 
-require 'post_codes'
+require 'postal_code'
 require 'rack/test'
 require 'factory_bot'
 require 'faker'
