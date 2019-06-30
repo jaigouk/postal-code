@@ -48,20 +48,20 @@ module PostalCode
 
     def import_csv(type)
       TABLES.map { |x| "#{x}.csv" }.each do |t|
-        file, data = "#{PostalCode::DATA_PATH}/#{type}/#{t}", []
+        file = "#{PostalCode::DATA_PATH}/#{type}/#{t}"
+        data = []
         next unless File.file?(file)
 
         puts "importing #{t} into database"
-        target_klass = klass(t)
         parsed_csv(file).each do |row|
-          data << target_klass(t).new(row.to_h.reject { |k| k.nil? } )
+          data << klass(t).new(row.to_h.select { |k, _| k.present? })
         end
-        target_klass(t).import data
+        klass(t).import data
       end
     end
 
     def parsed_csv(file)
-      CSV.parse(File.read(file).gsub("\r", ","), headers: true, col_sep: ',')
+      CSV.parse(File.read(file).gsub("\r", ''), headers: true, col_sep: ',')
     end
 
     def update_csv_headers(type)

@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
+require 'rspec/core/rake_task'
 require_relative 'lib/postal_code'
 require 'active_record_migrations'
 
 $LOAD_PATH.unshift(File.expand_path('lib', __dir__))
 
-require 'rspec/core/rake_task'
+load 'tasks/wof.rake'
 require 'rubocop/rake_task'
 require 'json'
 require 'pathname'
@@ -27,5 +28,3 @@ end
 
 task quality: %i[rubocop]
 task default: %i[spec quality]
-
-load 'tasks/wof.rake'
