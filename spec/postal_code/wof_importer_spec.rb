@@ -20,7 +20,7 @@ describe PostalCode::WofImporter do
     end
   end
 
-  describe '#export_wof_to_csv' do    
+  describe '#export_wof_to_csv' do
     it 'migrate sqlite db to postgres' do
       ENV['DATABASE_NAME']='postal_code_test'
       allow(Kernel).to receive(:system).and_return(true)
@@ -30,37 +30,18 @@ describe PostalCode::WofImporter do
       expect(subject).to receive(:convert_to_csv).with(admin_db)
       expect(subject).to receive(:convert_to_csv).with(post_db)
       subject.export_wof_to_csv
-    end    
-  end
-
-  describe '#import_wof_csv' do
-    it 'returns nil if there is no matching directory' do
-      allow(File).to receive(:directory?).and_return(false)
-      expect(subject).to receive(:read_csv_and_save).with('admin')
-      expect(subject).to receive(:read_csv_and_save).with('postalcode')
-      subject.import_wof_csv
-    end
-
-    it 'returns nil if there is no match csv file' do
-      allow(File).to receive(:directory?).and_return(true)
-      allow(File).to receive(:file?).and_return(true)
-      expect(subject).to receive(:read_csv_and_save).with('admin')
-      expect(subject).to receive(:read_csv_and_save).with('postalcode')
-      subject.import_wof_csv
     end
   end
 
-  describe '#x' do
-    # context('administrative data') do
-    #   it 'extracts geojson type - polygon or pint'
-    #   it 'extracts properties like geom data'
-    #   it 'extracts wof heirachy' do
-    #     # add extra migration file for this
-    #   end
-    # end
-    # context('post code data') do
-    #   it 'validates after importing data'
-    #   it 'saves missing parent regions'
-    # end
+  describe '#save_csv_to_db' do
+   it 'x' do
+    %w[ancestor concordance name geojson spr].each do |k|
+      klass = "PostalCode::#{k.capitalize}".constantize
+      allow(klass).to receive(:import).and_return(true)
+    end
+    expect(subject).to receive(:import_csv).with('admin')
+    expect(subject).to receive(:import_csv).with('postalcode')
+    subject.save_csv_to_db
+   end
   end
 end

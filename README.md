@@ -1,10 +1,11 @@
-# Post Codes
+# Postal Code
 
-It provides an api endpoint which
+It provides an api endpoint which takes a GPS latitude and longitude and spits out the names of museums around that location grouped by their postcode as JSON.
 
-takes a GPS latitude and longitude and
+Assumption:
 
-spits out the names of museums around that location grouped by their postcode as JSON.
+- postcode data from WhosOnFirst.org is stil valid
+- postcode data hasn't been changed since they obtained the administrative & postcode data
 
 ## Example result
 
@@ -39,24 +40,14 @@ gem instsall bundler
 cp .env.example .env
 bundle install
 
-rake db:create
+rake db:setup
 
 # Japen db by default
 # We will import WhosOnFirst administrative and postcode data
 rake wof:download_db
 rake wof:convert_to_csv
-rake wof:import_csv
+rake wof:import_csv_to_db
 
 # For adding extra migrations
 rake db:new_migration name=CreateSomething
-```
-
-redis
-
-```sh
-$ gem install rugged
-
-You need to have CMake and pkg-config installed on your system to be able to build the included version of libgit2. On OS X, after installing Homebrew, you can get CMake with:
-
-$ brew install cmake
 ```

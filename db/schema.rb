@@ -17,31 +17,38 @@ ActiveRecord::Schema.define(version: 2019_06_29_125715) do
   enable_extension "postgis"
 
   create_table "ancestors", force: :cascade do |t|
-    t.integer "ancestor_id", null: false
+    t.integer "wof_id", null: false
+    t.integer "ancestor_wof_id", null: false
     t.string "ancestor_placetype", null: false
     t.integer "lastmodified", null: false
-    t.index ["ancestor_id", "ancestor_placetype", "lastmodified"], name: "ancestors_by_ancestor"
-    t.index ["id", "ancestor_placetype", "lastmodified"], name: "ancestors_by_id"
+    t.index ["ancestor_wof_id", "ancestor_placetype", "lastmodified"], name: "ancestors_by_ancestor"
     t.index ["lastmodified"], name: "ancestors_by_lastmod"
+    t.index ["wof_id", "ancestor_placetype", "lastmodified"], name: "ancestors_by_wof_id"
+    t.index ["wof_id"], name: "index_ancestors_on_wof_id"
   end
 
   create_table "concordances", force: :cascade do |t|
-    t.integer "other_id"
+    t.integer "wof_id", null: false
+    t.decimal "other_id", precision: 40
     t.string "other_source"
     t.integer "lastmodified"
-    t.index ["id", "lastmodified"], name: "concordances_by_id"
     t.index ["lastmodified"], name: "concordances_by_lastmod"
     t.index ["other_source", "other_id", "lastmodified"], name: "concordances_by_other_lastmod"
     t.index ["other_source", "other_id"], name: "concordances_by_other_id"
+    t.index ["wof_id", "lastmodified"], name: "concordances_by_wof_id"
+    t.index ["wof_id"], name: "index_concordances_on_wof_id"
   end
 
   create_table "geojson", force: :cascade do |t|
+    t.integer "wof_id", null: false
     t.jsonb "body"
     t.integer "lastmodified", null: false
     t.index ["lastmodified"], name: "geojson_by_lastmod"
+    t.index ["wof_id"], name: "index_geojson_on_wof_id"
   end
 
   create_table "names", force: :cascade do |t|
+    t.integer "wof_id", null: false
     t.string "placetype"
     t.string "country"
     t.string "language"
@@ -54,15 +61,16 @@ ActiveRecord::Schema.define(version: 2019_06_29_125715) do
     t.string "name"
     t.integer "lastmodified", null: false
     t.index ["country", "privateuse", "placetype"], name: "names_by_country"
-    t.index ["id"], name: "names_by_wofid"
     t.index ["language", "privateuse", "placetype"], name: "names_by_language"
     t.index ["lastmodified"], name: "names_by_lastmod"
     t.index ["name", "placetype", "country"], name: "names_by_name"
     t.index ["name", "privateuse", "placetype", "country"], name: "names_by_name_private"
     t.index ["placetype", "country", "privateuse"], name: "names_by_placetype"
+    t.index ["wof_id"], name: "names_by_wofid"
   end
 
   create_table "spr", force: :cascade do |t|
+    t.integer "wof_id", null: false
     t.integer "parent_id"
     t.string "name"
     t.string "placetype"
@@ -98,6 +106,7 @@ ActiveRecord::Schema.define(version: 2019_06_29_125715) do
     t.index ["parent_id", "is_current", "lastmodified"], name: "spr_by_parent"
     t.index ["placetype", "is_current", "lastmodified"], name: "spr_by_placetype"
     t.index ["repo", "lastmodified"], name: "spr_by_repo"
+    t.index ["wof_id"], name: "index_spr_on_wof_id"
   end
 
 end

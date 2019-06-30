@@ -6,6 +6,13 @@ require 'yaml'
 
 require_relative 'postal_code/geocoding'
 require_relative 'postal_code/wof_importer'
+require_relative 'postal_code/csv_importer'
+
+require_relative "postal_code/models/ancestor"
+require_relative "postal_code/models/concordance"
+require_relative "postal_code/models/geojson"
+require_relative "postal_code/models/name"
+require_relative "postal_code/models/spr"
 
 # PostalCode
 #
