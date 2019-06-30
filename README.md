@@ -4,7 +4,7 @@ It provides an api endpoint which takes a GPS latitude and longitude and spits o
 
 Assumption:
 
-- postcode data from WhosOnFirst.org is stil valid
+- postcode data from WhosOnFirst.org covers the countries fully for postal codes
 - postcode data hasn't been changed since they obtained the administrative & postcode data
 
 ## Example result
@@ -25,6 +25,8 @@ As an example when doing a request to `/museums?lat=52.494857&lng=13.437641` wou
 ```
 
 ## Local setup
+
+We need postgresql and redis to store data.
 
 ### Preparing data
 
@@ -54,4 +56,11 @@ rake wof:setup # to run 3 steps above
 
 # For adding extra migrations
 rake db:new_migration name=CreateSomething
+
+# In a new terminal, launch tile38
+# https://tile38.com/topics/getting-started/
+# tile38-server will use redis://localhost:9851/0 by default
+tile38-server
+
+redis-cli -p 9851
 ```

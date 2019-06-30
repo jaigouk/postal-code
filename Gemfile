@@ -11,7 +11,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'rack-attack', require: 'rack/attack'
 gem 'puma'
 gem 'sinatra'
-gem 'sinatra-contrib'
+gem 'sinatra-contrib', require: false
 gem 'addressable'
 gem 'dotenv'
 gem 'oj'

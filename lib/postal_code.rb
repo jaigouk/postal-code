@@ -12,6 +12,7 @@ require_relative 'postal_code/models/geojson'
 require_relative 'postal_code/models/name'
 require_relative 'postal_code/models/spr'
 require_relative 'postal_code/routes'
+require_relative 'postal_code/tile38'
 
 # PostalCode
 #
