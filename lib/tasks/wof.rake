@@ -16,6 +16,13 @@ namespace :wof do
     target.change_csv_haders
   end
 
+  # desc 'header'
+  # task :header, [:country] => :environment do |_, args|
+  #   country = args[:country] || 'jp'
+  #   target = PostalCode::WofImporter.new(country)
+  #   target.change_csv_haders
+  # end
+
   desc 'Save csv files to postgresql db'
   task :import_csv_to_db, [:country] => :environment do |_, args|
     country = args[:country] || 'jp'
