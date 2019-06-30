@@ -48,6 +48,10 @@ rake wof:download_db
 rake wof:convert_to_csv
 rake wof:import_csv_to_db
 
+or
+
+rake wof:setup # to run 3 steps above
+
 # For adding extra migrations
 rake db:new_migration name=CreateSomething
 ```

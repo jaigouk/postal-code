@@ -14,7 +14,7 @@ class CreateWofTables < ActiveRecord::Migration[5.2]
 
     create_table :concordances do |t|
       t.integer :wof_id, null: false
-      t.decimal :other_id, :precision => 40, null: :false
+      t.string :other_id, null: :false
       t.string :other_source
       t.integer :lastmodified
 
