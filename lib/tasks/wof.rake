@@ -22,4 +22,6 @@ namespace :wof do
     target = PostalCode::WofImporter.new(country)
     target.import_csv_to_db
   end
+
+  task setup: %i[download_db convert_to_csv import_csv_to_db]
 end

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_06_29_125715) do
 
   create_table "concordances", force: :cascade do |t|
     t.integer "wof_id", null: false
-    t.decimal "other_id", precision: 40
+    t.string "other_id"
     t.string "other_source"
     t.integer "lastmodified"
     t.index ["lastmodified"], name: "concordances_by_lastmod"
