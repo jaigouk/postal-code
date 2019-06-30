@@ -39,6 +39,10 @@ module PostalCode
         { error: e.message }
       end
 
+      def insert_geojson(namespace:, key:, geojson:)
+        set(namespace, key, 'OBJECT', geojson)
+      end
+
       private
 
       def parse_result(res)
