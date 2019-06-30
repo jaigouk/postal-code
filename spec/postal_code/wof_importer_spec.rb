@@ -41,7 +41,7 @@ describe PostalCode::WofImporter do
     end
     expect(subject).to receive(:import_csv).with('admin')
     expect(subject).to receive(:import_csv).with('postalcode')
-    subject.save_csv_to_db
+    subject.import_csv_to_db
    end
   end
 end

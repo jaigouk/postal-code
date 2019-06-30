@@ -8,13 +8,14 @@ module PostalCode
   # WofImporter
   # downloads db and import it
   # ancestors csv id is for relationship.
-  # same with names. multiple names  
+  # same with names. multiple names
   class WofImporter
-    ANCESTOR_HEADERS = %w[wof_id ancestor_wof_id ancestor_placetype lastmodified].freeze
-    CONCORDANCE_HEADERS = %w[wof_id other_id other_source lastmodified].freeze
+    ANCESTORS_HEADERS = %w[wof_id ancestor_wof_id ancestor_placetype
+                           lastmodified].freeze
+    CONCORDANCES_HEADERS = %w[wof_id other_id other_source lastmodified].freeze
     GEOJSON_HEADERS = %w[wof_id body lastmodified].freeze
-    NAMES_HADERS = %w[wof_id placetype country language extlang script region
-                      variant extension privateuse name lastmodified].freeze
+    NAMES_HEADERS = %w[wof_id placetype country language extlang script region
+                       variant extension privateuse name lastmodified].freeze
     SPR_HEADERS = %w[wof_id parent_id name placetype country repo latitude
                      longitude min_latitude min_longitude max_latitude
                      max_longitude is_current is_deprecated is_ceased
@@ -47,18 +48,20 @@ module PostalCode
 
     def import_csv(type)
       TABLES.map { |x| "#{x}.csv" }.each do |t|
-        file = "#{PostalCode::DATA_PATH}/#{type}/#{t}"
-        return unless File.file?(file)
+        file, data = "#{PostalCode::DATA_PATH}/#{type}/#{t}", []
+        next unless File.file?(file)
 
         puts "importing #{t} into database"
-        current_klass = klass(t)
-        data = []
-        csv = CSV.parse(File.read(file).gsub("\r", ","), headers: true, col_sep: ',')
-        csv.each do |row|
-          data << current_klass.new(row.to_h.reject { |k| k == nil} )
+        target_klass = klass(t)
+        parsed_csv(file).each do |row|
+          data << target_klass(t).new(row.to_h.reject { |k| k.nil? } )
         end
-        current_klass.import data
+        target_klass(t).import data
       end
+    end
+
+    def parsed_csv(file)
+      CSV.parse(File.read(file).gsub("\r", ","), headers: true, col_sep: ',')
     end
 
     def update_csv_headers(type)
@@ -66,27 +69,17 @@ module PostalCode
 
       TABLES.map { |x| "#{x}.csv" }.each do |t|
         file = "#{PostalCode::DATA_PATH}/#{type}/#{t}"
-        
-        puts "updating csv header for #{t}"
-        return unless File.file?(file)
+        return nil unless File.file?(file)
 
-        case t.gsub('.csv','')
-        when 'ancestors'
-          sed_cmd(ANCESTOR_HEADERS.join(','), file)
-        when 'concordances'
-          sed_cmd(CONCORDANCE_HEADERS.join(','), file)
-        when 'geojson'
-          sed_cmd(GEOJSON_HEADERS.join(','), file)
-        when 'names'
-          sed_cmd(NAMES_HADERS.join(','), file)
-        when 'spr'
-          sed_cmd(SPR_HEADERS.join(','), file)
-        end      
+        header = 'PostalCode::WofImporter::' \
+        "#{t.gsub('.csv', '').upcase}_HEADERS"
+        sed_cmd(header.constantize.join(','), file)
       end
     end
 
     def sed_cmd(headers, file)
-      system("tmp=$(sed '1 s/^.*$/#{headers}/' #{file}); printf \"%s\" \"$tmp\" > #{file}")
+      system("tmp=$(sed '1 s/^.*$/#{headers}/' #{file});" \
+      " printf \"%s\" \"$tmp\" > #{file}")
     end
 
     def fetch(db)
@@ -126,11 +119,11 @@ module PostalCode
     end
 
     def klass(filename)
-      sanitized = filename.gsub('.csv','')   
+      sanitized = filename.gsub('.csv', '')
       if %w[ancestors concordances names].include?(sanitized)
-        "PostalCode::#{sanitized.chomp('s').capitalize}".constantize      
+        "PostalCode::#{sanitized.chomp('s').capitalize}".constantize
       else
-        "PostalCode::#{sanitized.capitalize}".constantize 
+        "PostalCode::#{sanitized.capitalize}".constantize
       end
     end
   end
