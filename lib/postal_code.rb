@@ -11,6 +11,7 @@ require_relative 'postal_code/models/concordance'
 require_relative 'postal_code/models/geojson'
 require_relative 'postal_code/models/name'
 require_relative 'postal_code/models/spr'
+require_relative 'postal_code/routes'
 
 # PostalCode
 #

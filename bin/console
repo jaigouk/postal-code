@@ -1,9 +1,13 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-$LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
+require "bundler/setup"
+require_relative "../lib/postal_code"
 
-require 'postal_code'
-
-require 'irb'
-IRB.start
+begin
+  require "pry"
+  Pry.start
+rescue LoadError
+  require "irb"
+  IRB.start
+end
