@@ -30,5 +30,25 @@ namespace :wof do
     target.import_csv_to_db
   end
 
-  task setup: %i[download_db convert_to_csv import_csv_to_db]
+  # It took 149.771128 to finish this task for 199558 records.
+  #
+  # TODO:
+  # 1. filter country code
+  # country = args[:country].blank? ? 'JP' : args[:country].upcase
+  # 2. async
+  #
+  desc 'Import geojson into tile38-server'
+  task :import_geojson_to_tile38, [:country] => :environment do |_, args|
+    start = Time.now
+    target = PostalCode::Geojson.all
+    target.each do |geo|
+      wof_id = geo.wof_id
+      namespace = PostalCode::Spr.where(wof_id: wof_id).first&.placetype
+      PostalCode::Tile38.insert_geojson(namespace: namespace, key: wof_id, geojson: geo.body)
+    end
+    finish = Time.now
+    puts("It took #{finish - start} to finish this task for #{target.size} records.")
+  end
+
+  task setup: %i[download_db convert_to_csv import_csv_to_db import_geojson_to_tile38]
 end
