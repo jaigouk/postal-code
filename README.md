@@ -52,10 +52,11 @@ rake db:setup
 rake wof:download_db
 rake wof:convert_to_csv
 rake wof:import_csv_to_db
+rake wof:import_geojson_to_tile38
 
 or
 
-rake wof:setup # to run 3 steps above
+rake wof:setup # to run 4 steps above
 
 # For adding extra migrations
 rake db:new_migration name=CreateSomething
@@ -63,7 +64,12 @@ rake db:new_migration name=CreateSomething
 # In a new terminal, launch tile38
 # https://tile38.com/topics/getting-started/
 # tile38-server will use redis://localhost:9851/0 by default
+# It will consume about 560MB ram.
 tile38-server
 
-redis-cli -p 9851
+# In a new terminal, launch ruby server
+# And visit http://localhost:9292
+bundle exec rackup
+
+
 ```
