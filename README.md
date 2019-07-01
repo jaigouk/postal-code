@@ -2,10 +2,13 @@
 
 It provides an api endpoint which takes a GPS latitude and longitude and spits out the names of museums around that location grouped by their postcode as JSON.
 
-Assumption:
+**Assumptions:**
 
-- postcode data from WhosOnFirst.org covers the countries fully for postal codes
-- postcode data hasn't been changed since they obtained the administrative & postcode data
+- Postalcode data from WhosOnFirst.org covers the countries fully for postal codes
+- Postalcode data hasn't been changed since they obtained the administrative & postcode data
+- Coverage is [good enough](https://whosonfirst.org/blog/2019/05/13/geonames/) for the domain area
+
+<img src="https://whosonfirst.org/blog/2019/05/13/geonames/images/post-gn.png" width="600px">
 
 ## Example result
 
