@@ -71,5 +71,34 @@ tile38-server
 # And visit http://localhost:9292
 bundle exec rackup
 
-
 ```
+
+http://localhost:9292/museums?lat=52.494857&lng=13.437641
+
+## QA
+
+### Museums
+
+http://localhost:9292/museums?lat=52.494857&lng=13.437641
+
+```json
+{"10963":[{"text":"Museumspark","postcode":"10963"},{"text":"Museumsshop","postcode":"10963"}],"10785":[{"text":"Museumsshop","postcode":"10785"}],"12627":[{"text":"Museumswohnung Hellersdorf","postcode":"12627"}],"15562":[{"text":"Museumspark Rüdersdorf","postcode":"15562"}]}
+```
+
+### Starbucks Japan search
+
+1. keyword is starbucks
+2. coordinate is lat: 35.7020691, lng: 139.7753269
+
+http://localhost:9292/starbucks?lng=139.7753269&lat=35.7020691
+
+result is
+
+```json
+{"101-0028":[{"text":"Starbucks","postcode":"101-0028"}],"110-0007":[{"text":"Starbucks","postcode":"110-0007"}],"101-0045":[{"text":"Starbucks","postcode":"101-0045"}],"110-0005":[{"text":"Starbucks","postcode":"110-0005"},{"text":"Starbucks","postcode":"110-0005"}]}
+```
+
+Form [35.7020691,139.7753269] to postal code location 101-0062.
+google shows that the [distance is 1.6 km](https://www.google.com/maps/dir/'35.7020691,139.7753269'/101-0062,+Japan/@35.7001605,139.7605287,15z/data=!3m1!4b1!4m12!4m11!1m3!2m2!1d139.7753269!2d35.7020691!1m5!1m1!1s0x60188c19f2e5f07d:0x3ca11e47810e362b!2m2!1d139.7632912!2d35.6992105!3e2)
+
+Mapbox doesn't return postcode for that coordinate.
