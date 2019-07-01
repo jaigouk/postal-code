@@ -15,10 +15,14 @@ module PostalCode
 
     get('/ping') {}
 
-    get('/') do
-      json = PostalCode::Geojson.first&.body || ''
-      body("returned results are..\n #{json}")
-      status 200
+    get('/:search') do
+      content_type :json
+
+      keyword = params[:search]
+      lat = params[:lat]
+      lon = params[:lng]
+
+      PostalCode::Geocoding.new(lon,lat,keyword).respond.to_json
     end
   end
 end

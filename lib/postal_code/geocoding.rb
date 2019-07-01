@@ -37,6 +37,20 @@ module PostalCode
       "&country=#{data['features'].first['properties']['short_code']}"
     end
 
+    def country_from_tile38
+      PostalCode::Tile38.country_for(lat: @lat, lon: @lon)
+    end
+
+    # def country_from_mapbox
+    #   res = ask_mapbox(:reverse)
+    #   return unless res.code == 200
+
+    #   data = Oj.load(res.body)
+    #   return if data['features'].size.zero?
+
+    #   data['features'].first['properties']['short_code']
+    # end
+
     class << self
       def group_by_postcode(data)
         return unless data['features']
@@ -48,7 +62,7 @@ module PostalCode
 
       def filtered(data)
         temp = data['features'].map do |f|
-          f.select { |k, _| %w[text context place_name].include?(k) }
+          f.select { |k, _| %w[text center context place_name].include?(k) }
         end
         temp.each { |item| item['postcode'] = postcode(item) }
         temp.map do |h|
@@ -60,7 +74,10 @@ module PostalCode
         post = item['context'].select { |i| i['id'].include?('postcode') }
         return post[0]['text'] unless post.size.zero?
 
-        'FIX_BLANK_POSTCODE'
+        lon = item['center'][0]
+        lat = item['center'][1]
+        search = PostalCode::Tile38.nearby(key: 'postalcode', lat: lat, lon: lon)
+        PostalCode::Spr.where(wof_id: search['id']).first&.name
       end
     end
 
