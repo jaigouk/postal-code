@@ -73,8 +73,6 @@ bundle exec rackup
 
 ```
 
-http://localhost:9292/museums?lat=52.494857&lng=13.437641
-
 ## QA
 
 ### Museums

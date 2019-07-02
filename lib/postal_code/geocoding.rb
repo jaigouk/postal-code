@@ -28,6 +28,11 @@ module PostalCode
     end
 
     def country_code
+      # TODO:
+      # check coord is within the country
+      # otherwise fallback to mapbox
+      # "&country=#{country_from_tile38['properties']['iso:country']}"
+
       res = ask_mapbox(:reverse)
       return unless res.code == 200
 
@@ -40,16 +45,6 @@ module PostalCode
     def country_from_tile38
       PostalCode::Tile38.country_for(lat: @lat, lon: @lon)
     end
-
-    # def country_from_mapbox
-    #   res = ask_mapbox(:reverse)
-    #   return unless res.code == 200
-
-    #   data = Oj.load(res.body)
-    #   return if data['features'].size.zero?
-
-    #   data['features'].first['properties']['short_code']
-    # end
 
     class << self
       def group_by_postcode(data)
