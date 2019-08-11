@@ -73,14 +73,22 @@ bundle exec rackup
 
 ```
 
-## QA
+## Usage examples
 
 ### Museums
 
 http://localhost:9292/museums?lat=52.494857&lng=13.437641
 
 ```json
-{"10963":[{"text":"Museumspark","postcode":"10963"},{"text":"Museumsshop","postcode":"10963"}],"10785":[{"text":"Museumsshop","postcode":"10785"}],"12627":[{"text":"Museumswohnung Hellersdorf","postcode":"12627"}],"15562":[{"text":"Museumspark Rüdersdorf","postcode":"15562"}]}
+{
+  "10963": [
+    { "text": "Museumspark", "postcode": "10963" },
+    { "text": "Museumsshop", "postcode": "10963" }
+  ],
+  "10785": [{ "text": "Museumsshop", "postcode": "10785" }],
+  "12627": [{ "text": "Museumswohnung Hellersdorf", "postcode": "12627" }],
+  "15562": [{ "text": "Museumspark Rüdersdorf", "postcode": "15562" }]
+}
 ```
 
 ### Starbucks Japan search
@@ -93,7 +101,15 @@ http://localhost:9292/starbucks?lng=139.7753269&lat=35.7020691
 result is
 
 ```json
-{"101-0028":[{"text":"Starbucks","postcode":"101-0028"}],"110-0007":[{"text":"Starbucks","postcode":"110-0007"}],"101-0045":[{"text":"Starbucks","postcode":"101-0045"}],"110-0005":[{"text":"Starbucks","postcode":"110-0005"},{"text":"Starbucks","postcode":"110-0005"}]}
+{
+  "101-0028": [{ "text": "Starbucks", "postcode": "101-0028" }],
+  "110-0007": [{ "text": "Starbucks", "postcode": "110-0007" }],
+  "101-0045": [{ "text": "Starbucks", "postcode": "101-0045" }],
+  "110-0005": [
+    { "text": "Starbucks", "postcode": "110-0005" },
+    { "text": "Starbucks", "postcode": "110-0005" }
+  ]
+}
 ```
 
 Form [35.7020691,139.7753269] to postal code location 101-0062.
